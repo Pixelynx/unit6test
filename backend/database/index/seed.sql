@@ -1,28 +1,30 @@
 DROP DATABASE IF EXISTS unit6;
 CREATE DATABASE unit6;
 
+\c unit6;
+
 CREATE TABLE genres(
-  id SERIAL PRIMARY KEY
-  -- name VARCHAR NOT NULL
+  id SERIAL PRIMARY KEY,
+  name VARCHAR NOT NULL
 );
 
 CREATE TABLE movies(
-  id SERIAL PRIMARY KEY
-  -- title VARCHAR NOT NULL,
-  -- genre_id INT REFERENCES genres NOT NULL,
-  -- img_url VARCHAR
+  id SERIAL PRIMARY KEY,
+  title VARCHAR NOT NULL,
+  genre_id INT REFERENCES genres NOT NULL,
+  img_url VARCHAR
 );
 
 CREATE TABLE ratings(
-  id SERIAL PRIMARY KEY
-  -- stars INTEGER,
-  -- movie_id INT REFERENCES movies
+  id SERIAL PRIMARY KEY,
+  stars INTEGER,
+  movie_id INT REFERENCES movies
 );
 
 CREATE TABLE comments(
-  id SERIAL PRIMARY KEY
-  -- comment TEXT,
-  -- movie_id INT REFERENCES movies
+  id SERIAL PRIMARY KEY,
+  comment TEXT,
+  movie_id INT REFERENCES movies
 );
 
 -- INSERT INTO genres (name) VALUES
