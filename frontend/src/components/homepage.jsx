@@ -5,7 +5,7 @@ class Homepage extends Component {
   render() {
     return(
       <>
-      <div>Hello</div>
+        <div>Welcome To This Ghetto App</div>
       </>
     )
   }

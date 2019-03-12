@@ -1,0 +1,9 @@
+.nav_container {
+  width: 100%;
+  display: flex;
+}
+
+nav {
+  height: 75px;
+  background-color: darkblue;
+}
