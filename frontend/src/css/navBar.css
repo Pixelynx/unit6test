@@ -1,8 +1,3 @@
-/* .idiot_container {
-  width: 1440px;
-  background-color: pink;
-} */
-
 .nav_wrapper {
   width: 100%;
   display: grid;
@@ -10,15 +5,14 @@
 }
 
 nav {
+  display: grid;
   height: 75px;
   grid-column: 1 / span 2;
   background-color: darkblue;
 }
 
-.movies {
-  
-}
-
-.movie_by_genre {
-
+.movies, .movie_by_genre{
+  grid-column: 2;
+  text-align: right;
+  background-color: red;
 }
