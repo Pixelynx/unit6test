@@ -6,11 +6,11 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { configureStore } from './store/configureStore.js';
-import { fetchAllMovies } from './actions/movieActions.js';
+// import { fetchAllMovies } from './actions/movieActions.js';
 
 const store = configureStore();
 
-store.dispatch(fetchAllMovies());
+// store.dispatch(fetchAllMovies());
 
 ReactDOM.render(
   <Provider store={store}>

@@ -1,4 +1,9 @@
-.nav_container {
+/* .idiot_container {
+  width: 1440px;
+  background-color: pink;
+} */
+
+.nav_wrapper {
   width: 100%;
   display: flex;
 }
