@@ -5,10 +5,20 @@
 
 .nav_wrapper {
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 nav {
   height: 75px;
+  grid-column: 1 / span 2;
   background-color: darkblue;
+}
+
+.movies {
+  
+}
+
+.movie_by_genre {
+
 }

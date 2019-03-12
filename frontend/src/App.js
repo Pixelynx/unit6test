@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Homepage from './components/homepage.jsx';
 import NavBar from './components/navBar.jsx';
-import Movies from './components/movies.jsx';
+import MovieContainer from './components/containers/movieContainer.js';
 
 
 class App extends Component {
@@ -11,7 +11,7 @@ class App extends Component {
       <>
         <NavBar />
         <Route exact path='/' component={Homepage} />
-        <Route exact path='/movies' component={Movies} />
+        <Route exact path='/movies' component={MovieContainer} />
       </>
     );
   }

@@ -1,7 +1,7 @@
 const { db } = require('../index/index.js');
 
 module.exports = {
-  fetchAllMovies: (res, req, next) => {
+  fetchAllMovies: (req, res, next) => {
     db.any("SELECT * FROM movies")
       .then(body => {
         res.status(200)
@@ -14,7 +14,7 @@ module.exports = {
       .catch(err => console.log(err))
   },
 
-  fetchMovieByGenre: (res, req, next) => {
+  fetchMovieByGenre: (req, res, next) => {
     db.any("SELECT * FROM movies WHERE genres = ${genre}")
       .then(body => {
         res.status(200)
@@ -27,7 +27,7 @@ module.exports = {
       .catch(err => console.log(err))
   },
 
-  fetchMovieById: (res, req, next) => {
+  fetchMovieById: (req, res, next) => {
     const id = req.params.id;
     db.one("SELECT * FROM movies WHERE id = ${id}")
       .then(body => {
@@ -41,7 +41,7 @@ module.exports = {
       .catch(err => console.log(err))
   },
 
-  fetchMoviesByTotalAvg: (res, req, next) => {
+  fetchMoviesByTotalAvg: (req, res, next) => {
     db.any("SELECT movies.id, name, title, img_url AS genre, AVG(ratings.stars) AS avg_stars" +
     "FROM movies JOIN genre ON movies.genre.id = genre.id JOIN ratings ON movies.id = ratings.movies_id" +
     "GROUP BY movies.id, title, img_url, genre")

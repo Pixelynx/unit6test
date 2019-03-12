@@ -5,7 +5,6 @@ export const fetchAllMovies = () => {
   return(dispatch) => {
     return axios.get('/movies')
       .then(res => {
-        console.log(res)
         dispatch(fetchMoviesSuccessful(res.data))
       })
       .catch(err => console.log(err))

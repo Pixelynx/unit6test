@@ -10,8 +10,8 @@ class NavBar extends Component {
       <div className='idiot_container'>
         <div className='nav_wrapper'>
           <nav className='nav'>
+            <Link className='home_' to='/'>Home</Link>
             <Link className='movies' to='/movies'>Movies</Link>
-            <Link className='movie_by_id' to='/movies/:id'>Movie by id</Link>
             <Link className='movie_by_genre' to='/movies/byGenre'>Genre</Link>
           </nav>
         </div>

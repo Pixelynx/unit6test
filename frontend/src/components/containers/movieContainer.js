@@ -1,15 +1,17 @@
 import Movies from '../movies.jsx';
-import { fetchMovies } from '../../action/movieActions.js';
+import { fetchAllMovies } from '../../actions/movieActions.js';
+import { connect } from 'react-redux'
 
 export const mapStateToProps = (state) => {
+  console.log("STATE ", state)
   return ({
-    movies: state.movies
+    movies: state.movieReducer.movies
   })
 }
 
 export const mapDispatchToProps = (dispatch) => {
   return {
-      fetchMovies: (movies) => dispatch(fetchMovies(movies))
+      fetchMovies: () => dispatch(fetchAllMovies())
     };
 };
 
