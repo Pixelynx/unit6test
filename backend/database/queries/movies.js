@@ -3,7 +3,7 @@ const { db } = require('../index/index.js');
 module.exports = {
   fetchAllMovies: (res, req, next) => {
     db.any("SELECT * FROM movies")
-      .then((body) => {
+      .then(body => {
         res.status(200)
         .json({
           status: 'Success',
@@ -16,7 +16,7 @@ module.exports = {
 
   fetchMovieByGenre: (res, req, next) => {
     db.any("SELECT * FROM movies WHERE genres = ${genre}")
-      .then((body) => {
+      .then(body => {
         res.status(200)
         .json({
           status: 'Success',
@@ -30,7 +30,7 @@ module.exports = {
   fetchMovieById: (res, req, next) => {
     const id = req.params.id;
     db.one("SELECT * FROM movies WHERE id = ${id}")
-      .then((body) => {
+      .then(body => {
         res.status(200)
         .json({
           status:'Success',
