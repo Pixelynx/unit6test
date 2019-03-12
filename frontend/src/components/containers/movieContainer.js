@@ -1,6 +1,9 @@
+import Movies from '../movies.jsx';
+import { fetchMovies } from '../../action/movieActions.js';
+
 export const mapStateToProps = (state) => {
   return ({
-    allMovies: state.allMovies
+    movies: state.movies
   })
 }
 
