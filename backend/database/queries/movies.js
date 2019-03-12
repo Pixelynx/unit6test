@@ -39,7 +39,7 @@ module.exports = {
         })
       })
       .catch(err => console.log(err))
-  }
+  },
 
   fetchMoviesByTotalAvg: (res, req, next) => {
     db.any("SELECT movies.id, name, title, img_url AS genre, AVG(ratings.stars) AS avg_stars" +
