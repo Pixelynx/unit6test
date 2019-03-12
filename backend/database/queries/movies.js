@@ -57,5 +57,3 @@ module.exports = {
   }
 
 }
-
-// Fetch all movies with an average of all the ratings for each movie.
