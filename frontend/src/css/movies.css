@@ -1,0 +1,21 @@
+h1 {
+  color: yellow;
+  margin-top: 75px;
+}
+
+.movie_body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0;
+  background-color: black;
+}
+
+.movie_title {
+  color: yellow;
+}
+
+.movie_img {
+  display: inline-block;
+  margin-bottom: 15px;
+}

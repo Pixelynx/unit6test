@@ -4,6 +4,8 @@ import Homepage from './components/homepage.jsx';
 import NavBar from './components/navBar.jsx';
 import MovieContainer from './components/containers/movieContainer.js';
 
+import './App.css';
+
 
 class App extends Component {
   render() {
