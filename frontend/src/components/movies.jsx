@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import * as util from '../utils/apiCalls.js';
 import { DisplayMovies } from './displayMovies.jsx';
-import SearchMovies from './searchMovies.jsx';
+import { SearchMovies } from './searchMovies.jsx';
 
 import '../css/movies.css';
 
 class Movies extends Component {
+  constructor(props) {
+    super(props)
+  }
   state = {
     movieList: [],
     searchInput: ''
@@ -28,11 +31,11 @@ class Movies extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  // handleSubmit = (e) => {
-  //   e.preventDefault()
-  //
-  //
-  // }
+  handleSubmit = (e) => {
+    e.preventDefault()
+
+
+  }
 
   render() {
     const { movieList } = this.state
@@ -41,11 +44,15 @@ class Movies extends Component {
     return(
       <>
       <div className='movie_body'>
-
-        <SearchMovies {...this.props}
-          movieList={this.state.movieList}
-          searchInput={this.state.searchInput}
-          />
+        <form className='search_movies' onSubmit={this.handleSubmit}>
+          <input
+            type='text'
+            className='search_input'
+            name='searchInput'
+            onChange={this.handleSearchInput}
+            placeholder='Search Movies'></input>
+          <input type='submit' value='Search'></input>
+        </form>
 
 
       <h1>All Movies</h1>

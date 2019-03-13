@@ -1,18 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class SearchMovies extends Component {
-  constructor(props) {
-    super(props)
-  }
-
-  handleSubmit = (e) => {
-    const { searchInput, movieList } = this.props
-    e.preventDefault()
-
-    if(searchInput) {
-      movieList.filter(movie => {
+export const SearchMovies = ({ search, movies }) => {
+  // Need better way to display movies in func-comp -- bg style
+  return(
+    <>
+    {search ?
+      movies.filter(movie => {
         let movie_ = String(movie).toLowerCase();
-        let search_ = String(searchInput).toLowerCase();
+        let search_ = String(search).toLowerCase();
         let bgImg = {
           backgroundImage: 'url(' + movie_.img_url + ')',
           backgroundSize: 'contain',
@@ -28,31 +23,8 @@ class SearchMovies extends Component {
             </>
           )
         }
-      })  
+      }) : <p className='test'>Doesn't Exist</p>
     }
-  }
-
-  render() {
-
-
-
-
-  return(
-    <>
-    <form className='search_movies' onSubmit={this.handleSubmit}>
-      <input
-        type='text'
-        className='search_input'
-        name='searchInput'
-        onChange={this.handleSearchInput}
-        placeholder='Search Movies'></input>
-      <input type='submit' value='Search'></input>
-    </form>
-
     </>
   )
 }
-
-}
-
-export default SearchMovies;
