@@ -41,15 +41,11 @@ class Movies extends Component {
     return(
       <>
       <div className='movie_body'>
-        <form className='search_movies' onSubmit={this.handleSubmit}>
-          <input
-            type='text'
-            className='search_input'
-            name='searchInput'
-            onChange={this.handleSearchInput}
-            placeholder='Search Movies'></input>
-          <input type='submit' value='Search'></input>
-        </form>
+
+        <SearchMovies {...this.props}
+          movieList={this.state.movieList}
+          searchInput={this.state.searchInput}
+          />
 
 
       <h1>All Movies</h1>
