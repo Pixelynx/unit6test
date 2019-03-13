@@ -19,3 +19,7 @@ h1 {
   display: inline-block;
   margin-bottom: 15px;
 }
+
+.search_input {
+  color: red;
+}

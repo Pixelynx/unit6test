@@ -8,7 +8,7 @@ import '../css/movies.css';
 class Movies extends Component {
   state = {
     movieList: [],
-    loadingList: 'Loading...'
+    searchInput: ''
   }
 
   componentDidMount() {
@@ -23,15 +23,24 @@ class Movies extends Component {
     })
   }
 
+  handleSearchInput = (e) => {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
   render() {
     const { movieList } = this.state
-    console.log(this.state.movieList)
+    console.log(this.state)
 
     return(
       <>
       <div className='movie_body'>
         <form className='search_movies'>
-          <input type='text' placeholder='Search Movies'></input>
+          <input
+            type='text'
+            className='search_input'
+            name='searchInput'
+            onChange={this.state.handleSearchInput}
+            placeholder='Search Movies'></input>
           <input type='submit' value='Search'></input>
         </form>
       <h1>All Movies</h1>
