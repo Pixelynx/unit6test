@@ -1,17 +1,46 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import * as util from '../utils/apiCalls.js';
+import { DisplayMovies } from './displayMovies.jsx';
 
 class Movies extends Component {
+  state = {
+    movieList: [],
+    loadingList: 'Loading...'
+  }
 
   componentDidMount() {
-    // const { fetchMovies } = this.props
-    // console.log(fetchMovies)
+    this.fetchPosts()
+
+  }
+
+
+
+  fetchPosts() {
+    axios.get('/movies')
+    .then(res => {
+      this.setState({ movieList: res.data.body })
+    })
   }
 
   render() {
-    // console.log(this.props)
+    const { movieList } = this.state
+    console.log(this.state.movieList)
 
     return(
-      <div>Hello</div>
+      <>
+      <h1>All Movies</h1>
+      {movieList ?
+        movieList.map(movie => {
+          return (
+            <>
+            <div>{movie.title}</div>
+            <img src={movie.img_url} />
+            </>
+          )
+        }) : <p>No movies to list</p> }
+
+      </>
     )
   }
 }
