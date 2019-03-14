@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import * as util from '../utils/apiCalls.js';
+import * as util from '../../utils/apiCalls.js';
 import { DisplayMovies } from './displayMovies.jsx';
-// import { SearchMovies } from './searchMovies.jsx';
 
-import '../css/movies.css';
+import '../../css/movies.css';
 
 class Movies extends Component {
-
   state = {
     movieList: [],
     searchInput: ''
@@ -15,7 +13,6 @@ class Movies extends Component {
 
   componentDidMount() {
     this.fetchPosts()
-
   }
 
   fetchPosts() {

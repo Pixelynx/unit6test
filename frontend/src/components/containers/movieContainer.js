@@ -1,4 +1,4 @@
-import Movies from '../movies.jsx';
+import Movies from '../allMovies/movies.jsx';
 import { fetchAllMovies } from '../../actions/movieActions.js';
 import { connect } from 'react-redux'
 
