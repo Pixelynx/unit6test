@@ -2,14 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import * as util from '../utils/apiCalls.js';
 import { DisplayMovies } from './displayMovies.jsx';
-import { SearchMovies } from './searchMovies.jsx';
+// import { SearchMovies } from './searchMovies.jsx';
 
 import '../css/movies.css';
 
 class Movies extends Component {
-  constructor(props) {
-    super(props)
-  }
+
   state = {
     movieList: [],
     searchInput: ''
@@ -33,49 +31,72 @@ class Movies extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-
-
+    this.searchMovies()
+    console.log(this.state)
   }
 
+  searchMovies = () => {
+    if(this.state.searchInput) {
+      this.state.movieList.filter(movie => {
+
+        let movie_title = movie.title.toLowerCase();
+        let movie_ = String(this.state.movieList).toLowerCase();
+        let search_ = String(this.state.searchInput).toLowerCase();
+        let bgImg = {
+          backgroundImage: 'url(' + movie_.img_url + ')',
+          backgroundSize: 'contain',
+          backgroundRepeat: 'no-repeat',
+          width: '100px',
+          height: '100px'
+      };
+      if(movie_title === search_) {
+      return (
+        <>
+          <div key={movie.id} className='movie_title'>
+            {movie.title}
+            <img src={movie.img_url} alt="" />
+          </div>
+          <div className='movie_img' style={bgImg}></div>
+        </>
+      )
+    }
+        })
+      }
+  }
+
+
   render() {
-    const { movieList } = this.state
+    const { movieList, searchInput } = this.state
     console.log(this.state.searchInput)
+    console.log(this.state);
 
     return(
       <>
       <div className='movie_body'>
+
+        <h1>All Movies</h1>
+
         <form className='search_movies' onSubmit={this.handleSubmit}>
           <input
             type='text'
-            className='search_input'
             name='searchInput'
-            onChange={this.handleSearchInput}
-            placeholder='Search Movies'></input>
+            className='search_input'
+            placeholder='Search Movies'
+            onChange={this.handleSearchInput}></input>
           <input type='submit' value='Search'></input>
         </form>
+        <DisplayMovies
+          movies={movieList}
+          searchMovies={this.searchMovies}
+          />
 
 
-      <h1>All Movies</h1>
-      {movieList ?
-        movieList.map(movie => {
-          let bgImg = {
-            backgroundImage: 'url(' + movie.img_url + ')',
-            backgroundSize: 'contain',
-            backgroundRepeat: 'no-repeat',
-            width: '100px',
-            height: '100px'
-          }
-          return (
-            <>
-              <div key={movie.id} className='movie_title'>{movie.title}</div>
-              <div className='movie_img' style={bgImg}></div>
-            </>
-          )
-        }) : <p>No movies to list</p> }
+        <div className='remaining_space'>gbdfd</div>
       </div>
       </>
     )
   }
 }
+
 
 export default Movies;

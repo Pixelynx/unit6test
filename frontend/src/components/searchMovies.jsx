@@ -1,13 +1,25 @@
 import React from 'react';
 
-export const SearchMovies = ({ search, movies }) => {
+export const SearchMovies = (props) => {
+
   // Need better way to display movies in func-comp -- bg style
+
   return(
+
     <>
-    {search ?
-      movies.filter(movie => {
-        let movie_ = String(movie).toLowerCase();
-        let search_ = String(search).toLowerCase();
+
+    <form className='search_movies'>
+      <input
+        type='text'
+        className='search_input'
+        placeholder='Search Movies'></input>
+      <input type='submit' value='Search'></input>
+    </form>
+
+    {this.props.searchInput ?
+      this.props.movieList.filter(movie => {
+        let movie_ = String(this.props.movieList).toLowerCase();
+        let search_ = String(this.props.searchInput).toLowerCase();
         let bgImg = {
           backgroundImage: 'url(' + movie_.img_url + ')',
           backgroundSize: 'contain',
