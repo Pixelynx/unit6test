@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import axios from 'axios';
 import * as util from '../../utils/apiCalls.js';
 import { DisplayMovies } from './displayMovies.jsx';
+import Genres from '../genres/fetchGenre.jsx'
 
 import '../../css/movies.css';
 
@@ -90,6 +92,8 @@ class Movies extends Component {
 
         <div className='remaining_space'>gbdfd</div>
       </div>
+
+      <Route path='movies/byGenre' component={Genres}/>
       </>
     )
   }

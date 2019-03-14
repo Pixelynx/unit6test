@@ -13,8 +13,8 @@ class App extends Component {
       <>
         <NavBar />
         <Route exact path='/' component={Homepage} />
-        <Route exact path='movies/byGenre' component={Genres}/>
         <Route exact path='/movies' component={MovieContainer} />
+
       </>
     );
   }

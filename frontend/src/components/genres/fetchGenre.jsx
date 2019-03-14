@@ -7,7 +7,19 @@ class Genres extends Component {
     genres: []
   }
 
+  componentDidMount = () => {
+    this.fetchGenres()
+  }
+
+  fetchGenres = () => {
+    axios.get('/movies/byGenre')
+    .then(res => {
+      console.log(res)
+    })
+  }
+
   render() {
+    console.log('hello')
     return(
       <div>hello</div>
     )
